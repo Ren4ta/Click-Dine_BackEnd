@@ -1,0 +1,11 @@
+{
+  "name": "click-dine_backend",
+  "version": "1.0.0",
+  "description": "Click&Dine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leticia Passer y Renata Minuchin",
+  "license": "ISC"
+}
