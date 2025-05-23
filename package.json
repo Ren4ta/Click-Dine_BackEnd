@@ -9,6 +9,7 @@
   "author": "Leticia Passer y Renata Minuchin",
   "license": "ISC",
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.8",
     "express": "^5.1.0"
   }
 }
