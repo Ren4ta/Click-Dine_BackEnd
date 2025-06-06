@@ -1,14 +1,14 @@
-
-const supabase = require('./supabase'); // usa ./ o la ruta correcta
+import supabase from './supabase.js';
 
 (async () => {
   const { data, error } = await supabase
-    .from('usuario')
-    .select('*');
+    .from('categoria')
+    .select('*')
+    .limit(1);
 
   if (error) {
-    console.error('❌ Error al consultar:', error);
+    console.error('Connection failed:', error);
   } else {
-    console.log('✅ Usuarios:', data);
+    console.log('Connection successful. Data:', data);
   }
 })();
