@@ -1,21 +1,14 @@
-import config from './configs/db_config.js'
-import pkg from 'pg'
-const { Client } = pkg;
+// src/index.js
+import express from 'express';
+import restaurantesController from './controllers/restaurantesController.js';
 
-console.log(config)
-const client = new Client(config);
-try{
-    await client.connect();
-    let sql = `SELECT * FROM restaurante`;
-    let result = await client.query(sql);
-    
-    console.log(result.rows)
-} catch (ex) {
-    console.log(ex)
-} finally {
-    await client.end();
-}
+const app = express();
+const port = process.env.PORT || 3000;
 
 
+// Rutas
+app.use('/api/restaurantes', restaurantesController);
 
-
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
