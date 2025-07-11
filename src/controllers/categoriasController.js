@@ -1,25 +1,19 @@
 // src/controllers/categoriasController.js
 import express from 'express';
-import { listarCategorias, obtenerCategoria } from '../services/categoriasService.js';
+import { getCategoriasByRestaurante } from '../repositories/categoriaRepository.js';
 
 const router = express.Router();
 
-// GET /api/categorias - listar todas las categorías
-router.get('/', (req, res) => {
-  const categorias = listarCategorias();
-  res.json(categorias);
-});
-
-// GET /api/categorias/:id - obtener categoría por id
-router.get('/:id', (req, res) => {
-  const id = parseInt(req.params.id);
-  const categoria = obtenerCategoria(id);
-
-  if (!categoria) {
-    return res.status(404).json({ error: 'Categoría no encontrada' });
+// GET /api/categorias/:id_restaurante
+router.get('/:id_restaurante', async (req, res) => {
+  const { id_restaurante } = req.params;
+  try {
+    const categorias = await getCategoriasByRestaurante(id_restaurante);
+    res.json(categorias);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error al obtener las categorías' });
   }
-
-  res.json(categoria);
 });
 
 export default router;
