@@ -9,7 +9,7 @@ export async function getCategoriasByRestaurante(id_restaurante) {
 
     const query = `
       SELECT id, nombre, img, id_restaurante
-      FROM categorias
+      FROM categoria
       WHERE id_restaurante = $1
       ORDER BY id;
     `;
