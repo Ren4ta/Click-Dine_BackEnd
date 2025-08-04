@@ -1,6 +1,6 @@
-const db = require('../configs/db_config.js');
+import db from '../configs/db_config.js';
 
-async function getItemsByCategoriaAndRestaurante(idCategoria, idRestaurante) {
+export async function getItemsByCategoriaAndRestaurante(idCategoria, idRestaurante) {
   const query = `
     SELECT item_menu.*
     FROM item_menu
@@ -12,5 +12,3 @@ async function getItemsByCategoriaAndRestaurante(idCategoria, idRestaurante) {
   const { rows } = await db.query(query, values);
   return rows;
 }
-
-module.exports = { getItemsByCategoriaAndRestaurante };

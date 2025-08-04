@@ -1,7 +1,9 @@
-const itemMenuRepository = require('../repositories/itemMenuRepository');
+import { getItemsByCategoriaAndRestaurante } from '../repositories/itemMenuRepository.js';
 
 async function fetchItemsByCategoriaAndRestaurante(idCategoria, idRestaurante) {
-  return await itemMenuRepository.getItemsByCategoriaAndRestaurante(idCategoria, idRestaurante);
+  return await getItemsByCategoriaAndRestaurante(idCategoria, idRestaurante);
 }
 
-module.exports = { fetchItemsByCategoriaAndRestaurante };
+export default {
+  fetchItemsByCategoriaAndRestaurante
+};
