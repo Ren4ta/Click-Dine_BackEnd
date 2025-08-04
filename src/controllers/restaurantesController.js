@@ -1,4 +1,3 @@
-// src/controllers/restaurantesController.js
 import express from 'express';
 import restauranteService from '../services/restauranteService.js';
 

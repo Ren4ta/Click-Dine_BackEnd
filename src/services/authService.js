@@ -1,4 +1,3 @@
-// src/services/authService.js
 import authRepository from '../repositories/authRepository.js';
 
 const login = async (mail, contrasena) => {

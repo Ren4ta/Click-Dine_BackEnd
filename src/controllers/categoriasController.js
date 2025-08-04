@@ -1,10 +1,8 @@
-// src/controllers/categoriasController.js
 import express from 'express';
 import { getCategoriasByRestaurante } from '../repositories/categoriaRepository.js';
 
 const router = express.Router();
 
-// GET /api/categorias/:id_restaurante
 router.get('/:id_restaurante', async (req, res) => {
   const { id_restaurante } = req.params;
   try {

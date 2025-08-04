@@ -1,4 +1,3 @@
-// src/repositories/restauranteRepository.js
 import { Client } from 'pg';
 import config from '../configs/db_config.js';
 

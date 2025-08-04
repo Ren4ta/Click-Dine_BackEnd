@@ -1,4 +1,3 @@
-// src/index.js
 import express from 'express'; 
 import cors from 'cors';
 import restaurantesController from './controllers/restaurantesController.js'; 
@@ -10,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 app.use(cors()); 
 app.use(express.json()); 
-// Rutas
+
 app.use('/api/restaurantes', restaurantesController);  
 app.use('/api', authController);
 app.use('/api/categorias', categoriasController);

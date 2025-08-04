@@ -1,4 +1,3 @@
-// src/services/restauranteService.js
 import restauranteRepository from '../repositories/restauranteRepository.js';
 
 const getAllRestaurantes = async () => {

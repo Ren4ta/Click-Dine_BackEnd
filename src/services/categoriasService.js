@@ -1,4 +1,3 @@
-// src/services/categoriasService.js
 import { getAllCategorias, getCategoriaById } from '../repositories/categoriaRepository.js';
 
 export const listarCategorias = () => {
