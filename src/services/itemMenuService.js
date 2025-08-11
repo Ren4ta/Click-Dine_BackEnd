@@ -1,3 +1,5 @@
-export async function fetchItemsByCategoriaAndRestaurante(idCategoria, idRestaurante) {
-  return await getItemsByCategoriaAndRestaurante(idCategoria, idRestaurante);
+import { getItemsByCategoriaAndRestaurante } from '../repositories/itemMenuRepository.js';
+
+export async function fetchItemsByCategoriaAndRestaurante(idRestaurante, idCategoria) {
+  return await getItemsByCategoriaAndRestaurante(idRestaurante, idCategoria);
 }

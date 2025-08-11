@@ -4,17 +4,13 @@ import { fetchItemsByCategoriaAndRestaurante } from '../services/itemMenuService
 const router = express.Router();
 
 router.get('/:idRestaurante/:idCategoria', async (req, res) => {
-  const { idCategoria, idRestaurante } = req.params;
-
-  if (!idCategoria || !idRestaurante) {
-    return res.status(400).json({ error: 'Faltan parámetros requeridos.' });
-  }
+  const { idRestaurante, idCategoria } = req.params;
 
   try {
-    const items = await fetchItemsByCategoriaAndRestaurante(idCategoria, idRestaurante);
+    const items = await fetchItemsByCategoriaAndRestaurante(idRestaurante, idCategoria);
     res.json(items);
   } catch (error) {
-    console.error(error);
+    console.error('Error en itemMenuController:', error);
     res.status(500).json({ error: 'Error al obtener los items.' });
   }
 });
