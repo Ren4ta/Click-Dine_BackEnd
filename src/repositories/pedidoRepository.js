@@ -10,7 +10,7 @@ export async function crearPedidoConItems(pedidoData, items) {
 
     // 1. Crear pedido
     const pedidoQuery = `
-      INSERT INTO pedido (usuario_id, fecha, total)
+      INSERT INTO pedido (id_usuario, fecha, total)
       VALUES ($1, $2, $3)
       RETURNING id;
     `;

@@ -8,14 +8,14 @@ export async function addItemsToPedido(pedido_id, items) {
     await client.connect();
 
     const query = `
-      INSERT INTO item_pedido (id_item_menu, pedido_id, estado_pedido_id)
-      VALUES ($1, $2, 2)
+      INSERT INTO item_pedido (id_item_menu, id_estado_item)
+      VALUES ($1, 2)
       RETURNING *;
     `;
 
     let results = [];
     for (const id_item_menu of items) {
-      const res = await client.query(query, [id_item_menu, pedido_id]);
+      const res = await client.query(query, [id_item_menu]);
       results.push(res.rows[0]);
     }
 
