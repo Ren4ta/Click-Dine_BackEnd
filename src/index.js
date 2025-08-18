@@ -5,6 +5,11 @@ import authController from './controllers/authController.js';
 import categoriasController from './controllers/categoriasController.js'; 
 import itemMenuController from './controllers/itemMenuController.js';
 import itemRoutes from './controllers/itemController.js';
+import itemPedidoController from './controllers/itemPedidoController.js';
+import pedidoController from './controllers/pedidoController.js';
+
+
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -16,9 +21,18 @@ app.use('/api', authController);
 app.use('/api/categorias', categoriasController);
 app.use('/api/items-by-categoria-restaurante', itemMenuController);
 app.use('/api/items', itemRoutes);
+app.use('/api/item-pedido', itemPedidoController);
+app.use('/api/pedido', pedidoController);
+
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
+
+
+
+
 
 
 
