@@ -4,14 +4,18 @@ import { generarPedido } from '../services/pedidoService.js';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  const { usuario_id, fecha, total, items } = req.body;
+  const { id_usuario, id_mesa, items } = req.body;
 
   try {
-    if (!usuario_id || !fecha || !total || !items) {
+    if (!id_usuario || !id_mesa || !items || !Array.isArray(items) || items.length === 0) {
       return res.status(400).json({ error: 'Datos incompletos para crear el pedido' });
     }
 
-    const resultado = await generarPedido({ usuario_id, fecha, total }, items);
+    const resultado = await generarPedido(
+      { id_usuario, id_mesa }, 
+      items
+    );
+
     res.status(201).json(resultado);
   } catch (error) {
     console.error(error);

@@ -1,4 +1,4 @@
-import { addItemsToPedido } from '../repositories/itemPedidoRepository.js';
+import { addItemsToPedido } from '../repositories/UpdateEstadoitemPedidoRepository.js';
 
 export const agregarItemsAlPedido = async (items) => {
   if (!Array.isArray(items) || items.length === 0) {

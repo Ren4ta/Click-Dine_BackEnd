@@ -5,7 +5,7 @@ import authController from './controllers/authController.js';
 import categoriasController from './controllers/categoriasController.js'; 
 import itemMenuController from './controllers/itemMenuController.js';
 import itemRoutes from './controllers/itemController.js';
-import itemPedidoController from './controllers/itemPedidoController.js';
+import itemPedidoController from './controllers/UpdateEstadoitemPedidoController.js';
 import pedidoController from './controllers/pedidoController.js';
 
 
