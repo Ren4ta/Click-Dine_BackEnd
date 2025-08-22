@@ -5,7 +5,7 @@ import authController from './controllers/authController.js';
 import categoriasController from './controllers/categoriasController.js'; 
 import itemMenuController from './controllers/itemMenuController.js';
 import itemRoutes from './controllers/itemController.js';
-import itemPedidoController from './controllers/UpdateEstadoitemPedidoController.js';
+import UpdateEstadoitemPedidoController from './controllers/UpdateEstadoitemPedidoController.js';
 import pedidoController from './controllers/pedidoController.js';
 
 
@@ -21,7 +21,7 @@ app.use('/api', authController);
 app.use('/api/categorias', categoriasController);
 app.use('/api/items-by-categoria-restaurante', itemMenuController);
 app.use('/api/items', itemRoutes);
-app.use('/api/item-pedido', itemPedidoController);
+app.use('/api/item-pedido', UpdateEstadoitemPedidoController);
 app.use('/api/pedido', pedidoController);
 
 
