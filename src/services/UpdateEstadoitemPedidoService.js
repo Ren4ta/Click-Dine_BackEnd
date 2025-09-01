@@ -1,4 +1,4 @@
-import { updateEstadoItems } from '../repositories/itemPedidoRepository.js';
+import { updateEstadoItems } from '../repositories/UpdateEstadoitemPedidoRepository.js';
 
 export const actualizarEstadoItems = async (id_pedido, items) => {
   for (const item of items) {
