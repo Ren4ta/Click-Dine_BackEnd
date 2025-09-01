@@ -7,7 +7,7 @@ import itemMenuController from './controllers/itemMenuController.js';
 import itemRoutes from './controllers/itemController.js';
 import UpdateEstadoitemPedidoController from './controllers/UpdateEstadoitemPedidoController.js';
 import pedidoController from './controllers/pedidoController.js';
-
+import carritoRouter from './controllers/carritoController.js';
 
 
 const app = express();
@@ -23,7 +23,7 @@ app.use('/api/items-by-categoria-restaurante', itemMenuController);
 app.use('/api/items', itemRoutes);
 app.use('/api/item-pedido', UpdateEstadoitemPedidoController);
 app.use('/api/pedido', pedidoController);
-
+app.use('/api/carrito', carritoRouter);
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
