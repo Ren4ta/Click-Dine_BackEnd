@@ -10,6 +10,7 @@ import pedidoController from './controllers/pedidoController.js';
 import carritoRouter from './controllers/carritoController.js';
 import mesasController from './controllers/mesasController.js';
 import updateEstadoPedidoController from './controllers/UpdateEstadoPedidoController.js';
+import finalizarPedidoController from './controllers/finalizarPedidoController.js';
 
 
 const app = express();
@@ -28,6 +29,7 @@ app.use('/api/pedido', pedidoController);
 app.use('/api/carrito', carritoRouter);
 app.use('/mesas', mesasController);
 app.use('/pedido/UpdateEstado', updateEstadoPedidoController);
+app.use('/pedido', finalizarPedidoController);
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
