@@ -5,7 +5,6 @@ export const generarPedido = async (pedidoData, items) => {
     throw new Error('No hay items para generar el pedido');
   }
 
-  // Transformo items [{id_item_menu: X}, ...]
   const itemsData = items.map(id_item_menu => ({
     id_item_menu,
     id_estado_item: 2

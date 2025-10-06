@@ -8,21 +8,26 @@ export async function crearPedidoConItems(pedidoData, items) {
     await client.connect();
     await client.query('BEGIN');
 
-    const pedidoQuery = `
-      INSERT INTO pedido (id_usuario, tiempocreacion, tiempofincocina, id_estado_pedido, id_mesa)
-      VALUES ($1, $2, $3, $4, $5)
-      RETURNING id;
-    `;
+    let pedido_id = pedidoData.id_pedido;
 
-    const pedidoRes = await client.query(pedidoQuery, [
-      pedidoData.id_usuario,
-      null,  // tiempocreacion
-      null,  // tiempofincocina
-      2,     // id_estado_pedido
-      pedidoData.id_mesa
-    ]);
+    // Si no se recibió un id_pedido, crear uno nuevo
+    if (!pedido_id) {
+      const pedidoQuery = `
+        INSERT INTO pedido (id_usuario, tiempocreacion, tiempofincocina, id_estado_pedido, id_mesa)
+        VALUES ($1, $2, $3, $4, $5)
+        RETURNING id;
+      `;
 
-    const pedido_id = pedidoRes.rows[0].id;
+      const pedidoRes = await client.query(pedidoQuery, [
+        pedidoData.id_usuario,
+        null,
+        null,
+        2,
+        pedidoData.id_mesa
+      ]);
+
+      pedido_id = pedidoRes.rows[0].id;
+    }
 
     const itemQuery = `
       INSERT INTO item_pedido (id_item_menu, id_estado_item, id_pedido)
@@ -34,7 +39,7 @@ export async function crearPedidoConItems(pedidoData, items) {
     for (const item of items) {
       const res = await client.query(itemQuery, [
         item.id_item_menu,
-        2, // id_estado_item fijo en 2
+        2,
         pedido_id
       ]);
       insertedItems.push(res.rows[0]);
