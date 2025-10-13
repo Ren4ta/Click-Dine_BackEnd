@@ -1,10 +1,8 @@
 import express from 'express';
 import { cambiarEstadoPedido } from '../services/UpdateEstadoPedidoService.js';
 
-
 const router = express.Router();
 
-// PUT /pedido/update-estado
 router.put('/update-estado', async (req, res) => {
   const { id_pedido, id_estado_pedido } = req.body;
 

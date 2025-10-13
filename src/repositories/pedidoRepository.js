@@ -10,7 +10,6 @@ export async function crearPedidoConItems(pedidoData, items) {
 
     let pedido_id = pedidoData.id_pedido;
 
-    // Si no se recibió un id_pedido, crear uno nuevo
     if (!pedido_id) {
       const pedidoQuery = `
         INSERT INTO pedido (id_usuario, tiempocreacion, tiempofincocina, id_estado_pedido, id_mesa)

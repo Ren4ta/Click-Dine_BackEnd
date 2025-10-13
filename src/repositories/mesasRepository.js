@@ -20,7 +20,6 @@ export async function getMesasConPedidosActivos(id_restaurante) {
       WHERE p_inner.id_mesa = m.id
         AND p_inner.id_estado_pedido <> 7
       ORDER BY p_inner.tiempocreacion DESC
-      LIMIT 1
     ) p ON TRUE
     LEFT JOIN LATERAL (
       SELECT json_agg(json_build_object(
@@ -44,7 +43,6 @@ export async function getMesasConPedidosActivos(id_restaurante) {
     await client.connect();
     const res = await client.query(query, [id_restaurante]);
 
-    // Mapear a una estructura más amigable JSON
     const mesas = res.rows.map(row => {
       if (!row.id_pedido) {
         return {
@@ -64,7 +62,7 @@ export async function getMesasConPedidosActivos(id_restaurante) {
           id_estado_pedido: row.id_estado_pedido,
           tiempocreacion: row.tiempocreacion,
           tiempofincocina: row.tiempofincocina,
-          items: row.items // ya es un JSON array (puede ser [])
+          items: row.items 
         }
       };
     });

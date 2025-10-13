@@ -11,11 +11,12 @@ import carritoRouter from './controllers/carritoController.js';
 import mesasController from './controllers/mesasController.js';
 import updateEstadoPedidoController from './controllers/UpdateEstadoPedidoController.js';
 import finalizarPedidoController from './controllers/finalizarPedidoController.js';
-
+import * as PedidoController from './controllers/PedidoCompletoController.js';
+import * as PedidoCompletoController from './controllers/PedidoCompletoController.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
-
+const router = express.Router();
 app.use(cors()); 
 app.use(express.json()); 
 
@@ -30,6 +31,7 @@ app.use('/api/carrito', carritoRouter);
 app.use('/mesas', mesasController);
 app.use('/pedido/UpdateEstado', updateEstadoPedidoController);
 app.use('/pedido', finalizarPedidoController);
+router.get('/api/pedidocom/:id_pedido', PedidoCompletoController.getPedido); 
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);

@@ -23,15 +23,14 @@ export async function cerrarPedido({ id_pedido, id_restaurante, id_medio_pago, i
   subtotal = parseFloat(
     subtotal
       .toString()
-      .replace(/\./g, '')  // quitar puntos
-      .replace(',', '.')   // cambiar coma por punto decimal
+      .replace(/\./g, '')  
+      .replace(',', '.')  
   );
 
   if (isNaN(subtotal)) {
     throw new Error('Subtotal inválido en cálculo');
   }
 
-  // Ajustar dividiendo entre 100 para corregir escala decimal
   subtotal = subtotal / 100;
 
   const propinaMonto = (subtotal * propinaLimpia) / 100;

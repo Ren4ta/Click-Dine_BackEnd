@@ -3,7 +3,6 @@ import { getMesasConPedidosActivos } from '../repositories/mesasRepository.js';
 
 const router = express.Router();
 
-// GET /mesas/:id_restaurante/pedidos-activos
 router.get('/:id_restaurante/pedidos-activos', async (req, res) => {
   const { id_restaurante } = req.params;
 
